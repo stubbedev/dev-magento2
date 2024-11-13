@@ -8,6 +8,7 @@ for CF in "${COMPOSE_FILES[@]}"; do
     sed -i '/version:/d' "$CF"
     sed -i '/image: mysql/a \    cap_add:\n\      - SYS_NICE' "$CF"
     sed -i '/OPENSEARCH_JAVA_OPTS/a \      - "OPENSEARCH_INITIAL_ADMIN_PASSWORD=jexqrwT$1b@@%Lg"' "$CF"
+    sed -i '/magento-data:\/var\/www\/html/a \      - ./app:/var/www/html:cached' "$CF"
   fi
 done
 
@@ -25,6 +26,7 @@ VERSION_DIRS=(./versions/*)
 for VD in "${VERSION_DIRS[@]}"; do
   if [ -d "$VD" ]; then
     cp "./init.sh" "$VD"
+    mkdir -p "$VD/app"
   fi
 done
 
