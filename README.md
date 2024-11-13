@@ -1,5 +1,30 @@
 # Docker Image for Magento Open Source 2
 
+## HOW TO USE
+
+In order to get the latest versions of Magento2, simply clone this repo first then cd into the folder.
+
+`git clone https://github.com/stubbedev/dev-magento2.git && cd dev-magento2`
+
+In order to pull all the newest versions on offer for Magento2, you should run the `update.sh` file.
+
+This will ensure that the newest docker-compose versions are pulled and that they receive a few small edits then need to work. To do this, simply run:
+
+`./update.sh`
+
+After this is done, you should `cd` into the folder for the version you wish to work with.
+
+Eg. `cd versions/2.4.4-p6`
+
+Once you are in this folder you can just run the initial setup script for that version. This is like like so:
+
+`./init.sh`
+
+
+_BELOW THIS POINT IS THE ORIGINAL README FOR THE PROJECT, WHICH I HAVE LEFT TO CLARIFY HOW TO WORKS IF YOU WISH TO CUSTOMIZE THE SETUP_
+
+----------------------------------------------------------------------------------------
+
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/alexcheng1982)
 
 **This repo ONLY maintains Docker images for Magento Open Source 2.4.x. You may still found Docker images for old versions in the [old registry](https://quay.io/repository/alexcheng1982/magento2).**
