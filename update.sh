@@ -27,6 +27,7 @@ VERSION_DIRS=(./versions/*)
 for VD in "${VERSION_DIRS[@]}"; do
   if [ -d "$VD" ]; then
     cp "./init.sh" "$VD"
+    chmod a+x "$VD/init.sh"
     mkdir -p "$VD/app"
   fi
 done
