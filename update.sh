@@ -18,6 +18,7 @@ case "$REPLY" in
     sudo grep -qxF '127.0.0.1       local.magento' /etc/hosts || sudo echo '127.0.0.1       local.magento' >> /etc/hosts
     ;;
   *)
+    printf "\n"
     echo "Skipping adding alias!"
     ;;
 esac
