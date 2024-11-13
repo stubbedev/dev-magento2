@@ -1,3 +1,7 @@
 #!/bin/bash
 
-su www-data /var/www/html/bin/magento "$@"
+su www-data <<EOSU
+
+/var/www/html/bin/magento $@
+
+EOSU

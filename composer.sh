@@ -1,3 +1,7 @@
 #!/bin/bash
 
-su www-data /usr/local/bin/composer "$@"
+su www-data <<EOSU
+
+/usr/local/bin/composer $@
+
+EOSU
