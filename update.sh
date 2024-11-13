@@ -33,5 +33,5 @@ for VD in "${VERSION_DIRS[@]}"; do
 done
 
 echo "cd into ./versions/VERSION you wish to run"
-echo "then simply run sudo ./init.sh"
+echo "then simply run ./init.sh"
 
