@@ -1,2 +1,4 @@
 .bash_history
 node_modules
+package-lock.json
+versions/*/*.sh
