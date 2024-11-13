@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
 
-su www-data <<EOSU
-
-/usr/local/bin/composer $@
-
-EOSU
+CONTAINER_NAME=$(sudo docker ps | awk '{print $NF}' | grep -w web)
+sudo docker exec -it "$CONTAINER_NAME" composer "$@"

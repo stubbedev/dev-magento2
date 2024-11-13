@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
 
-su www-data <<EOSU
-
-/var/www/html/bin/magento $@
-
-EOSU
+CONTAINER_NAME=$(sudo docker ps | awk '{print $NF}' | grep -w web)
+sudo docker exec -it "$CONTAINER_NAME" ./bin/magento "$@"
