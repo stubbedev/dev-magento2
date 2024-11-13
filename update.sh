@@ -27,11 +27,18 @@ VERSION_DIRS=(./versions/*)
 for VD in "${VERSION_DIRS[@]}"; do
   if [ -d "$VD" ]; then
     cp "./init.sh" "$VD"
+    cp "./bash.sh" "$VD/bash"
+    cp "./composer.sh" "$VD/composer"
+    cp "./magento.sh" "$VD/magento"
     chmod a+x "$VD/init.sh"
+    chmod a+x "$VD/bash"
+    chmod a+x "$VD/composer"
+    chmod a+x "$VD/magento"
     mkdir -p "$VD/app"
   fi
 done
 
-echo "cd into ./versions/VERSION you wish to run"
-echo "then simply run ./init.sh"
+echo "cd into ./versions/\$VERSION you wish to run"
+printf "\n"
+echo "THEN RUN: ./init.sh"
 
