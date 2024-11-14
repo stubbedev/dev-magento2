@@ -14,7 +14,7 @@ This will ensure that the newest docker-compose versions are pulled and that the
 
 After this is done, you should `cd` into the folder for the version you wish to work with.
 
-Eg. `cd versions/2.4.4-p6`
+Eg. `cd versions/2.4.6-p5`
 
 Once you are in this folder you can just run the initial setup script for that version. This is like like so:
 
