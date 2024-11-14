@@ -12,6 +12,13 @@ for CF in "${COMPOSE_FILES[@]}"; do
 	fi
 done
 
+DOCKER_FILES=(./versions/*/Dockerfile)
+for DF in "${DOCKER_FILES[@]}"; do
+	if [ -f "$DF" ]; then
+		sed -i '/ENV COMPOSER_HOME/a \nRUN su www-data -c "sysctl -w vm.max_map_count=262144"' "$DF"
+	fi
+done
+
 read -rn 1 -p "Would you like to added 'local.magento' to your hosts file as an alias for localhost? [Y]es/(n)o." INSTALL_HOSTS_ALIAS
 case "$INSTALL_HOSTS_ALIAS" in
 Y | y | yes | Yes)
