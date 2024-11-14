@@ -19,18 +19,7 @@ for DF in "${DOCKER_FILES[@]}"; do
 	fi
 done
 
-INSTALL_HOSTS_ALIAS="yes"
-read -rn 1 -p "Would you like to added 'local.magento' to your hosts file as an alias for localhost? [Y]es/(n)o." INSTALL_HOSTS_ALIAS
-case "$INSTALL_HOSTS_ALIAS" in
-Y | y | yes | Yes)
-  sudo grep -qxF '127.0.0.1       local.magento' /etc/hosts || sudo sed -i "$ a 127.0.0.1       local.magento" /etc/hosts
-	;;
-*)
-	printf "\n"
-	echo "Skipping adding alias!"
-	printf "\n"
-	;;
-esac
+sudo grep -qxF '127.0.0.1       local.magento' /etc/hosts || sudo sed -i "$ a 127.0.0.1       local.magento" /etc/hosts
 
 VERSION_DIRS=(./versions/*)
 for VD in "${VERSION_DIRS[@]}"; do
