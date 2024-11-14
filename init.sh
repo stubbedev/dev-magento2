@@ -2,6 +2,7 @@
 
 sudo docker compose up -d
 function install_magento_data {
+  sudo sysctl -w vm.max_map_count=262144
 	message="Waiting "
 	unit=" seconds for container to warm up."
 	secs=$((60))
