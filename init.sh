@@ -26,7 +26,7 @@ function install_magento_data {
 		;;
 	*)
 		start_container
-    wait_for_warmup 15
+		wait_for_warmup 15
 		mount_volumes
 		;;
 	esac
@@ -46,10 +46,10 @@ function start_container {
 function wait_for_warmup {
 	case $1 in
 	'' | *[!0-9]*)
-    n=60
+		n=60
 		;;
 	*)
-    n=$1
+		n=$1
 		;;
 	esac
 	message="Waiting "
@@ -75,7 +75,9 @@ function install_magento {
 function mount_volumes {
 	CONTAINER_NAME=$(sudo docker ps | awk '{print $NF}' | grep -w web)
 	container_prefix="${CONTAINER_NAME%-web*}"
-	sudo ln -sf "/var/lib/docker/volumes/${container_prefix}_magento-data/_data/*" .
+	sudo chown $USER "/var/lib/docker/volumes/${container_prefix}_magento-data"
+	sudo ln -sf "/var/lib/docker/volumes/${container_prefix}_magento-data/_data" .
+	# sudo chmod -R 777 $(readlink _data)
 }
 
 install_magento_data
