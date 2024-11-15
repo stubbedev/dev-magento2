@@ -16,7 +16,7 @@ function install_magento_data {
 	sudo docker exec -it "$CONTAINER_NAME" install-sampledata
 
 	container_prefix="${CONTAINER_NAME%-web*}"
-	ln -sf "/var/lib/docker/volumes/${container_prefix}_magento-data/_data" "./app/"
+	sudo ln -sf "/var/lib/docker/volumes/${container_prefix}_magento-data/_data/*" "./app/"
 	echo "You can now visit the site:"
 	echo "frontend: http://local.magento"
 	echo "backend: http://local.magento/admin"
