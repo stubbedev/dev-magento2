@@ -26,6 +26,7 @@ function install_magento_data {
 		;;
 	*)
 		start_container
+    wait_for_warmup 15
 		mount_volumes
 		;;
 	esac
@@ -43,9 +44,17 @@ function start_container {
 }
 
 function wait_for_warmup {
+	case $1 in
+	'' | *[!0-9]*)
+		n=$1
+		;;
+	*)
+		n=60
+		;;
+	esac
 	message="Waiting "
 	unit=" seconds for container to warm up."
-	secs=$((60))
+	secs=$(($n))
 	while [ $secs -gt 0 ]; do
 		echo -ne "$message$secs$unit\033[0K\r"
 		sleep 1
