@@ -44,6 +44,7 @@ function install_magento_data {
 function start_container {
 	sudo sysctl -w vm.max_map_count=262144
 	sudo docker compose up -d
+	printf "\n"
 }
 
 function wait_for_warmup {
@@ -55,7 +56,7 @@ function wait_for_warmup {
 		n=$1
 		;;
 	esac
-  echo "==============================================="
+	echo "==============================================="
 	message="Waiting "
 	unit=" seconds for container to warm up."
 	secs=$(($n))
@@ -64,7 +65,7 @@ function wait_for_warmup {
 		sleep 1
 		: $((secs--))
 	done
-  echo "==============================================="
+	echo "==============================================="
 }
 
 function install_sample_data {
@@ -86,6 +87,7 @@ function mount_volumes {
 	readlink _data
 	echo ""
 	echo "Eg. sudo \$(which code) \$(readlink _data)"
+	printf "\n"
 }
 
 install_magento_data
