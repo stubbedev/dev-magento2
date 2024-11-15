@@ -20,6 +20,8 @@ for DF in "${DOCKER_FILES[@]}"; do
 done
 
 sudo grep -qxF '127.0.0.1       local.magento' /etc/hosts || sudo sed -i "$ a 127.0.0.1       local.magento" /etc/hosts
+sudo groupadd docker
+sudo usermod -aG docker $USER
 
 VERSION_DIRS=(./versions/*)
 for VD in "${VERSION_DIRS[@]}"; do

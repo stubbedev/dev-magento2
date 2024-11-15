@@ -10,7 +10,6 @@ function install_magento_data {
 	case "$REPLY" in
 	1)
 		start_container
-		printf "\n"
 		wait_for_warmup
 		install_magento
 		install_magento_data
@@ -18,14 +17,12 @@ function install_magento_data {
 		;;
 	2)
 		start_container
-		printf "\n"
 		wait_for_warmup
 		install_magento_data
 		mount_volumes
 		;;
 	*)
 		start_container
-		printf "\n"
 		wait_for_warmup 15
 		mount_volumes
 		;;
@@ -36,6 +33,7 @@ function install_magento_data {
 	echo "backend: http://local.magento/admin"
 	printf "\n"
 	cat ./env
+	printf "\n"
 }
 
 function start_container {
@@ -53,7 +51,6 @@ function wait_for_warmup {
 		n=$1
 		;;
 	esac
-	echo "==============================================="
 	message="Waiting "
 	unit=" seconds for container to warm up."
 	secs=$(($n))
@@ -62,7 +59,6 @@ function wait_for_warmup {
 		sleep 1
 		: $((secs--))
 	done
-	echo "==============================================="
 }
 
 function install_sample_data {
