@@ -46,10 +46,10 @@ function start_container {
 function wait_for_warmup {
 	case $1 in
 	'' | *[!0-9]*)
-		n=$1
+    n=60
 		;;
 	*)
-		n=60
+    n=$1
 		;;
 	esac
 	message="Waiting "
