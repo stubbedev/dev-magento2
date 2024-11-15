@@ -5,3 +5,4 @@ versions/*/*.sh
 versions/*/magento
 versions/*/composer
 versions/*/bash
+versions/*/_data
