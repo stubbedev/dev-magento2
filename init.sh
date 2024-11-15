@@ -1,9 +1,6 @@
 #!/bin/bash
 
 function install_magento_data {
-	sudo sysctl -w vm.max_map_count=262144
-	sudo docker compose up -d
-
 	echo "Choose one of the following options:"
 	echo "(1) Install Magento2 & Sample Data"
 	echo "(2) Install Sample Data"
