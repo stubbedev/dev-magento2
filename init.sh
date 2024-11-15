@@ -55,6 +55,7 @@ function wait_for_warmup {
 		n=$1
 		;;
 	esac
+  echo "==============================================="
 	message="Waiting "
 	unit=" seconds for container to warm up."
 	secs=$(($n))
@@ -63,6 +64,7 @@ function wait_for_warmup {
 		sleep 1
 		: $((secs--))
 	done
+  echo "==============================================="
 }
 
 function install_sample_data {
