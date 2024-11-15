@@ -66,7 +66,7 @@ function install_magento {
 function mount_volumes {
 	container_prefix="${CONTAINER_NAME%-web*}"
 	sudo ln -sf "/var/lib/docker/volumes/${container_prefix}_magento-data/_data" "./"
-	sudo chmod -R 777 "/var/lib/docker/volumes/${container_prefix}_magento-data/_data/"
+	sudo chmod -R 777 $(readlink _data)
 }
 
 install_magento_data
