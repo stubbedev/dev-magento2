@@ -13,6 +13,7 @@ function install_magento_data {
 	case "$REPLY" in
 	1)
 		start_container
+		printf "\n"
 		wait_for_warmup
 		install_magento
 		install_magento_data
@@ -20,12 +21,14 @@ function install_magento_data {
 		;;
 	2)
 		start_container
+		printf "\n"
 		wait_for_warmup
 		install_magento_data
 		mount_volumes
 		;;
 	*)
 		start_container
+		printf "\n"
 		wait_for_warmup 15
 		mount_volumes
 		;;
