@@ -77,7 +77,10 @@ function mount_volumes {
 	container_prefix="${CONTAINER_NAME%-web*}"
 	sudo chown $USER "/var/lib/docker/volumes/${container_prefix}_magento-data"
 	sudo ln -sf "/var/lib/docker/volumes/${container_prefix}_magento-data/_data" .
-	# sudo chmod -R 777 $(readlink _data)
+	echo "You can edit the files within the container on this path:"
+	readlink _data
+	echo ""
+	echo "Eg. sudo \$(which code) \$(readlink _data)"
 }
 
 install_magento_data
